@@ -3,11 +3,16 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+counter = 0
+arr.each {|element| counter += element}
+return counter
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  arr.sort!
+  x = arr.pop(2)
+  sum(x)
+
 end
 
 def sum_to_n? arr, n
