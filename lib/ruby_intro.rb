@@ -5,7 +5,7 @@
 def sum arr
 counter = 0
 arr.each {|element| counter += element}
-return counter
+    return counter
 end
 
 def max_2_sum arr
@@ -16,25 +16,50 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  
+  hash = Hash.new(0)
+  arr.each do |val|
+    if hash.key? val
+      return true
+    else
+      hash[n-val] = val
+    end
+  end
+  return false
+  
 end
+
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+   "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+!!(s[0] =~ /[bcdfghjklmnprstvwxyz]+/i)
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s =~ /^[0-1]+$/
+    return s.to_i(2) % 4 == 0 
+  end
+  false
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+attr_accessor :isbn, :price
+
+  def initialize isbn, price
+    raise ArgumentError if isbn.empty? || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string
+    format("$%.2f", @price)
+  end
+
 end
