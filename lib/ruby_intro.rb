@@ -11,7 +11,16 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-    arr.sum == n
+    lookup = {}
+    arr.each do |element|
+      complement = n - element
+      if !lookup[complement].nil?
+        return true
+      else
+        lookup[element] = complement
+      end
+    end
+    false
 end
 
 
